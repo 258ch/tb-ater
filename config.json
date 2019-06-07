@@ -1,0 +1,8 @@
+{
+    "src": ["程序员", "技术宅", "渗透", "IT", "极客", "人工智能", "红客", "python", "php", "wordpress", "bug", "chrome", "firefox", "java", "javascript"],
+    "users": "users.txt",
+    "wait_sec": 60,
+    "tid": "6149642769",
+    "tb": "apachecn",
+    "at_num": 5
+}

@@ -1,0 +1,16 @@
+{
+  "name": "tb_ater",
+  "version": "1.0.0",
+  "description": "获取贴吧前十页主页的楼主。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "sync-request": "*",
+    "sleep": "*",
+    "cheerio": "*"
+  }
+}
