@@ -5,8 +5,6 @@ const crypto = require('crypto')
 
 var config = JSON.parse(fs.readFileSync('config.json', 'utf-8'))
 var cookie = fs.readFileSync('cookie', 'utf-8').trim()
-var users = fs.readFileSync(config.users, 'utf-8')
-    .split('\n').map(x => x.trim()).filter(x => x)
     
 function getFid(tb) {
     
@@ -45,6 +43,9 @@ exports.config = config
 exports.cookie = cookie
 
 function main() {
+
+    var users = fs.readFileSync(config.users, 'utf-8')
+        .split('\n').map(x => x.trim()).filter(x => x)
 
     for(var i = 0; i < users.length; i += config.at_num) {
         
