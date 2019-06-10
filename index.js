@@ -27,7 +27,7 @@ function main() {
     var idx = Math.trunc(Math.random() * tbList.length)
     var tb = tbList[idx]
     
-    var users = getUsersByTb(tb, 5)
+    var users = getUsersByTb(tb, 3)
     
     for(var i = 0; i < users.length; i += config.at_num) {
         
