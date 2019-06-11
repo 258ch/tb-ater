@@ -35,7 +35,7 @@ function sendReply(tb, tid, content, cookie) {
     if(j.error_code == 0)
         return [1, '']
     else if(j.error_code == 220035)
-        return [-1, '']
+        return [-1, j.error_msg]
     else 
         return [0, j.error_msg]
 }
