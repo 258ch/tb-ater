@@ -36,6 +36,8 @@ function main() {
             var res = at.sendReply(config.tb, config.tid, content, cookie)
             if(res[0] == 1) {
                 console.log(`${config.tid} ${content} 发送成功`)
+            } else if(res[0] == -1) {
+                break
             } else {
                 console.log(`${config.tid} ${content} 发送失败：${res[1]}`)
                 i -= config.at_num
