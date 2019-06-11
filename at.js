@@ -31,11 +31,13 @@ function sendReply(tb, tid, content, cookie) {
     postData = `${cookie}&_client_id=${cid}&_client_type=2&_client_version=1.0.4&_phone_imei=000000000000000&anonymous=0&content=${encodeURIComponent(content)}&fid=${fid}&from=baidu_appstore&kw=${encodeURIComponent(tb)}&net_type=1&tbs=${tbs}&tid=${tid}&sign=${sign}`
     var url = 'http://c.tieba.baidu.com/c/c/post/add'
     var resStr = request('POST', url, {body: postData}).getBody().toString()
-    var j = JSON.parse(resStr)
+    var j = JSON.parse(resStr);console.log(j)
     if(j.error_code == 0)
         return [1, '']
+    else(j.error_code == 220035)
+        return [-1, '']
     else 
-        return [j.error_code, j.error_msg]
+        return [0, j.error_msg]
 }
 
 exports.sendReply = sendReply
@@ -54,6 +56,8 @@ function main() {
             var res = sendReply(config.tb, config.tid, content, cookie)
             if(res[0] == 1) {
                 console.log(`${config.tid} ${content} 发送成功`)
+            } else(res[0] == -1) {
+                break
             } else {
                 console.log(`${config.tid} ${content} 发送失败：${res[1]}`)
                 i -= config.at_num
