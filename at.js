@@ -56,11 +56,10 @@ function main() {
             var res = sendReply(config.tb, config.tid, content, cookie)
             if(res[0] == 1) {
                 console.log(`${config.tid} ${content} 发送成功`)
-            } else if(res[0] == -1) {
-                break
             } else {
                 console.log(`${config.tid} ${content} 发送失败：${res[1]}`)
                 i -= config.at_num
+                if(res[0] == -1) break
             }
             sleep.sleep(config.wait_sec)
         } catch(ex) {
