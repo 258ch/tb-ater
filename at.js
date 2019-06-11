@@ -34,7 +34,7 @@ function sendReply(tb, tid, content, cookie) {
     var j = JSON.parse(resStr);console.log(j)
     if(j.error_code == 0)
         return [1, '']
-    else(j.error_code == 220035)
+    else if(j.error_code == 220035)
         return [-1, '']
     else 
         return [0, j.error_msg]
