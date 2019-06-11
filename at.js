@@ -31,7 +31,7 @@ function sendReply(tb, tid, content, cookie) {
     postData = `${cookie}&_client_id=${cid}&_client_type=2&_client_version=1.0.4&_phone_imei=000000000000000&anonymous=0&content=${encodeURIComponent(content)}&fid=${fid}&from=baidu_appstore&kw=${encodeURIComponent(tb)}&net_type=1&tbs=${tbs}&tid=${tid}&sign=${sign}`
     var url = 'http://c.tieba.baidu.com/c/c/post/add'
     var resStr = request('POST', url, {body: postData}).getBody().toString()
-    var j = JSON.parse(resStr);console.log(j)
+    var j = JSON.parse(resStr)
     if(j.error_code == 0)
         return [1, '']
     else if(j.error_code == 220035)
